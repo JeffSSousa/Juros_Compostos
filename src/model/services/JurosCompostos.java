@@ -1,16 +1,38 @@
 package model.services;
 
-public class JurosCompostos implements Juros{
-	
+import java.util.ArrayList;
+import java.util.List;
+
+import model.entities.Relatorio;
+
+public class JurosCompostos implements Juros {
+	private Integer month = 0;
+	private Integer year = 1;
+	private Double totalInvested = 0.0;
+	private List<Relatorio> relatorio = new ArrayList<>();
+
 	@Override
-	public void  InterestCalculation (double montante,double vlrAplicado, double taxaJurosAnual, int meses,double vlrinicial) {
-		double taxaJurosMensal = Math.pow(1 + taxaJurosAnual, 1.0 / 12) - 1;
-		
-		for(int i = 1;i<=meses;i++) {
-			montante = montante * (1 + taxaJurosMensal) + vlrAplicado;
-		} 
-		
-		System.out.println(montante);
-		
-	 }
+	public void InterestCalculation(double amount, double monthlyAmount, double annualFee, int months,double initialValue) {
+		double monthlyFee = Math.pow(1 + annualFee, 1.0 / 12) - 1;
+
+		for (int i = 1; i <= months; i++) {
+
+			month++;
+			if (month > 12) {
+				year++;
+				month = 1;
+			}
+
+			totalInvested += monthlyAmount;
+			amount = amount * (1 + monthlyFee) + monthlyAmount;
+
+			relatorio.add(new Relatorio(year, month, amount, (amount - totalInvested), totalInvested));
+		}
+
+		for (Relatorio p : relatorio) {
+			System.out.println(p.toString());
+			System.out.println();
+		}
+
+	}
 }

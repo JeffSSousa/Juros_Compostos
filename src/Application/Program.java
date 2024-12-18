@@ -6,9 +6,8 @@ import model.services.JurosCompostos;
 public class Program {
 	public static void main(String[]args) {
 		
-	 Juros juros = new JurosCompostos();
-	juros.InterestCalculation(0, 100, 0.12, 12,0);
-	 
+	Juros juros = new JurosCompostos();
+	juros.InterestCalculation(0, 100, 0.12, 24,0);
 	 
 	}
 

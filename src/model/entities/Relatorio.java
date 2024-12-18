@@ -35,7 +35,11 @@ public class Relatorio {
 		return totalInvested;
 	}
 
+	@Override
 	public String toString() {
-		return null;
+		return "Ano " + getYear() + ", Mes " + getMonth()
+		        + "\nTotal investido: " + getTotalInvested()
+		        + "\nLucro Total: " + getTotalInInterest()
+		        + "\nValor Total Final: " + getTotalValue();
 	}
 }
