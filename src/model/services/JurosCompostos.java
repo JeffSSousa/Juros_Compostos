@@ -9,7 +9,7 @@ public class JurosCompostos implements Juros {
 	private Integer month = 0;
 	private Integer year = 1;
 	private Double totalInvested = 0.0;
-	private List<Relatorio> relatorio = new ArrayList<>();
+	private List<Relatorio> report = new ArrayList<>();
 
 	@Override
 	public void InterestCalculation(double amount, double monthlyAmount, double annualFee, int months,double initialValue) {
@@ -26,13 +26,18 @@ public class JurosCompostos implements Juros {
 			totalInvested += monthlyAmount;
 			amount = amount * (1 + monthlyFee) + monthlyAmount;
 
-			relatorio.add(new Relatorio(year, month, amount, (amount - totalInvested), totalInvested));
+			report.add(new Relatorio(year, month, amount, (amount - totalInvested), totalInvested));
 		}
 
-		for (Relatorio p : relatorio) {
+		for (Relatorio p : report) {
 			System.out.println(p.toString());
 			System.out.println();
 		}
 
 	}
+	
+	// Método para acessar a lista de relatórios
+    public List<Relatorio> getRelatorio() {
+        return report;
+    }
 }
