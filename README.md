@@ -36,7 +36,7 @@ Este é um projeto desenvolvido em Java utilizando o Maven para gerenciamento de
 
 ```bash
 git clone git@github.com:JeffSSousa/Juros_Compostos.git
-cd projeto-juros-compostos
+cd juros_compostos
 ```
 2. Compile e execute o projeto com Maven:
 
