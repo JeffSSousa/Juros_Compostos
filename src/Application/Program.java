@@ -65,5 +65,3 @@ public class Program {
 
 }
 
-
-//valor correto para 12 aa 12 meses é de 1.264,65
